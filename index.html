@@ -247,5 +247,18 @@
         },
       });
     </script>
+
+    <script>
+      const stykyTop = document.querySelector(".sticky-top");
+      const offcanvas = document.querySelector(".offcanvas");
+
+      offcanvas.addEventListener("show.bs.offcanvas", function () {
+        stykyTop.style.overflow = "visible";
+      });
+
+      offcanvas.addEventListener("hidden.bs.offcanvas", function () {
+        stykyTop.style.overflow = "hidden";
+      });
+    </script>
   </body>
 </html>
