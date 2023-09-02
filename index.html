@@ -42,7 +42,9 @@
         <h1>Putra & Putri</h1>
         <p>Akan melangsungkan resepsi pernikahan dalam:</p>
         <div class="simply-countdown"></div>
-        <a href="#undangan" class="btn btn-lg mt-5">Lihat Undangan</a>
+        <a href="#undangan" class="btn btn-lg mt-5" onclick="enableScroll()"
+          >Lihat Undangan</a
+        >
       </div>
     </section>
 
@@ -443,6 +445,17 @@
       </div>
     </section>
 
+    <section id="rsvp" class="rsvp">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-md-8 col-10 text-center">
+            <h2>Konfirmasi Kehadiran</h2>
+            <p>Isi form di bawah ini untuk melakukan konfirmasi kehadiran.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
@@ -481,6 +494,39 @@
       offcanvas.addEventListener("hidden.bs.offcanvas", function () {
         stykyTop.style.overflow = "hidden";
       });
+    </script>
+
+    <!-- disableScroll -->
+    <script>
+      // mematikan smooth scrolling bootstrap yang ada pada root
+      const rootElement = document.querySelector(":root");
+
+      function disableScroll() {
+        const scrollTop =
+          window.pageYOffset || document.documentElement.scrollTop;
+        const scrollLeft =
+          window.pageXOffset || document.documentElement.scrollLeft;
+
+        window.onscroll = function () {
+          window.scrollTo(scrollTop, scrollLeft);
+        };
+
+        // mematikan smooth scrolling
+        rootElement.style.scrollBehavior = "auto";
+      }
+
+      function enableScroll() {
+        window.onscroll = function () {};
+
+        // aktifkan smooth scrolling
+        rootElement.style.scrollBehavior = "smooth";
+        // menyimpan dilokalStorage agar
+        localStorage.setItem("opened", "true");
+      }
+
+      if (!localStorage.getItem("opened")) {
+        disableScroll();
+      }
     </script>
   </body>
 </html>
