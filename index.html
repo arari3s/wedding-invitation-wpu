@@ -453,6 +453,47 @@
             <p>Isi form di bawah ini untuk melakukan konfirmasi kehadiran.</p>
           </div>
         </div>
+
+        <form
+          method="POST"
+          action="https://script.google.com/macros/s/AKfycbw9MRSk_Z14hCgVS_hXSGKOrwT_E307s9VXtOJBMP9Cww_fWRlw0OSAGt1nbMaMUI9_/exec"
+          class="row row-cols-md-auto g-3 align-items-center justify-content-center"
+          id="my-form"
+        >
+          <div class="col-12">
+            <div class="mb-3">
+              <label for="nama" class="form-label">Nama</label>
+              <input type="text" class="form-control" id="nama" name="nama" />
+            </div>
+          </div>
+          <div class="col-12">
+            <div class="mb-3">
+              <label for="jumlah" class="form-label">Jumlah</label>
+              <input
+                type="number"
+                class="form-control"
+                min="1"
+                max="5"
+                value="1"
+                id="jumlah"
+                name="jumlah"
+              />
+            </div>
+          </div>
+          <div class="col-12">
+            <div class="mb-3">
+              <label for="status" class="form-label">Konfirmasi</label>
+              <select name="status" id="status" class="form-control">
+                <option selected>-- Pilih salah satu --</option>
+                <option value="Hadir">Hadir</option>
+                <option value="Tidak Hadir">Tidak Hadir</option>
+              </select>
+            </div>
+          </div>
+          <div class="col-12">
+            <button class="btn btn-primary">Kirim</button>
+          </div>
+        </form>
       </div>
     </section>
 
@@ -527,6 +568,24 @@
       if (!localStorage.getItem("opened")) {
         disableScroll();
       }
+    </script>
+
+    <!-- callback response send confirmation guest -->
+    <script>
+      window.addEventListener("load", function () {
+        const form = document.getElementById("my-form");
+        form.addEventListener("submit", function (e) {
+          e.preventDefault();
+          const data = new FormData(form);
+          const action = e.target.action;
+          fetch(action, {
+            method: "POST",
+            body: data,
+          }).then(() => {
+            alert("Konvirmasi kehadiran berhasil dikirim!");
+          });
+        });
+      });
     </script>
   </body>
 </html>

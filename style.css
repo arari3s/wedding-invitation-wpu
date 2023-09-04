@@ -333,6 +333,22 @@ body {
   font-size: 4.5rem;
 }
 
+.rsvp form label {
+  font-size: 1rem;
+}
+
+.rsvp button {
+  background-color: var(--pink);
+  border: 1px solid var(--pink);
+  margin-top: 17px;
+}
+
+.rsvp button:hover {
+  background-color: white;
+  border: 1px solid white;
+  color: var(--pink);
+}
+
 /* Media Query */
 /* Extra Large */
 @media (max-width: 1200px) {
