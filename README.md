@@ -14,6 +14,7 @@ Create a wedding invitation website with HTML, CSS & BOOTSTRAP 5.
 - [Icon](https://icons.getbootstrap.com)
 - [Lightbox for Bootstrap 5](https://trvswgnr.github.io/bs5-lightbox/)
 - [Submit an HTML form to Google Sheets](https://github.com/levinunnink/html-form-to-google-sheet)
+- [Disqus](https://disqus.com)
 
 ## Assets Image
 
